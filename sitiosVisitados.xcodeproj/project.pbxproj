@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		82132AFBEBFA1CE34FB6C957 /* Pods_sitiosVisitados.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C6CC3756D5A532293EF1F2 /* Pods_sitiosVisitados.framework */; };
 		D24E38F921E65C16004C3EEA /* ListadoSitios.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24E38F821E65C16004C3EEA /* ListadoSitios.swift */; };
+		D27BE7C422132E12001EC93D /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27BE7C322132E12001EC93D /* Connectivity.swift */; };
 		D29DEB1B21E4D3B10019D7A1 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29DEB1A21E4D3B10019D7A1 /* Register.swift */; };
 		D2AF352C21E4CB1F00DBC497 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AF352B21E4CB1F00DBC497 /* AppDelegate.swift */; };
 		D2AF352E21E4CB1F00DBC497 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AF352D21E4CB1F00DBC497 /* ViewController.swift */; };
@@ -18,12 +19,14 @@
 		D2BCEADA21E67F3F00DEE5CF /* AñadirSitios.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BCEAD921E67F3F00DEE5CF /* AñadirSitios.swift */; };
 		D2CB7ECE21F715080006E975 /* MapaMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB7ECD21F715080006E975 /* MapaMain.swift */; };
 		D2CF3DB121E4D24500D9175E /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF3DB021E4D24500D9175E /* Login.swift */; };
+		D2D6C6C22212B8E100142D18 /* DetalCopia.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D6C6C12212B8E100142D18 /* DetalCopia.swift */; };
 		D2FF466C21E79CE30036B464 /* DatosGloables.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FF466B21E79CE30036B464 /* DatosGloables.swift */; };
 		D2FF467021E7AC950036B464 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FF466F21E7AC950036B464 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D24E38F821E65C16004C3EEA /* ListadoSitios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListadoSitios.swift; sourceTree = "<group>"; };
+		D27BE7C322132E12001EC93D /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		D29DEB1A21E4D3B10019D7A1 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		D2AF352821E4CB1F00DBC497 /* sitiosVisitados.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sitiosVisitados.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AF352B21E4CB1F00DBC497 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +38,7 @@
 		D2BCEAD921E67F3F00DEE5CF /* AñadirSitios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AñadirSitios.swift"; sourceTree = "<group>"; };
 		D2CB7ECD21F715080006E975 /* MapaMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapaMain.swift; sourceTree = "<group>"; };
 		D2CF3DB021E4D24500D9175E /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		D2D6C6C12212B8E100142D18 /* DetalCopia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalCopia.swift; sourceTree = "<group>"; };
 		D2FF466B21E79CE30036B464 /* DatosGloables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatosGloables.swift; sourceTree = "<group>"; };
 		D2FF466F21E7AC950036B464 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E96073A106EF239B1179BB16 /* Pods-sitiosVisitados.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sitiosVisitados.release.xcconfig"; path = "Pods/Target Support Files/Pods-sitiosVisitados/Pods-sitiosVisitados.release.xcconfig"; sourceTree = "<group>"; };
@@ -93,14 +97,16 @@
 			isa = PBXGroup;
 			children = (
 				D2AF352B21E4CB1F00DBC497 /* AppDelegate.swift */,
+				D27BE7C322132E12001EC93D /* Connectivity.swift */,
 				D2AF352F21E4CB1F00DBC497 /* Main.storyboard */,
 				D24E38F821E65C16004C3EEA /* ListadoSitios.swift */,
 				D29DEB1A21E4D3B10019D7A1 /* Register.swift */,
 				D2CF3DB021E4D24500D9175E /* Login.swift */,
+				D2AF352D21E4CB1F00DBC497 /* ViewController.swift */,
 				D2BCEAD921E67F3F00DEE5CF /* AñadirSitios.swift */,
 				D2FF466B21E79CE30036B464 /* DatosGloables.swift */,
-				D2AF352D21E4CB1F00DBC497 /* ViewController.swift */,
 				D2CB7ECD21F715080006E975 /* MapaMain.swift */,
+				D2D6C6C12212B8E100142D18 /* DetalCopia.swift */,
 				D2FF466F21E7AC950036B464 /* DetailViewController.swift */,
 				D2AF353221E4CB2000DBC497 /* Assets.xcassets */,
 				D2AF353421E4CB2000DBC497 /* LaunchScreen.storyboard */,
@@ -236,8 +242,10 @@
 				D29DEB1B21E4D3B10019D7A1 /* Register.swift in Sources */,
 				D2AF352C21E4CB1F00DBC497 /* AppDelegate.swift in Sources */,
 				D2FF466C21E79CE30036B464 /* DatosGloables.swift in Sources */,
+				D27BE7C422132E12001EC93D /* Connectivity.swift in Sources */,
 				D24E38F921E65C16004C3EEA /* ListadoSitios.swift in Sources */,
 				D2FF467021E7AC950036B464 /* DetailViewController.swift in Sources */,
+				D2D6C6C22212B8E100142D18 /* DetalCopia.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

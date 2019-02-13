@@ -10,6 +10,7 @@ class MapaMain: UIViewController,CLLocationManagerDelegate, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         mostrarLugares()
@@ -28,7 +29,19 @@ class MapaMain: UIViewController,CLLocationManagerDelegate, MKMapViewDelegate {
         pin()
         mostrarLugares()
     }
-    
+    //Reconocer pin pulsado
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        print(view.annotation?.title as Any)
+        print(view.annotation?.description as Any)
+        
+        let indexOfTitle = nombreBD.firstIndex(of: ((view.annotation?.title)!)!)
+        nombreDetalle.append(indexOfTitle!)
+        print(nombreDetalle)
+        
+        
+        performSegue(withIdentifier: "DetailCopia", sender: self)
+    }
+
     func pin() {
         for i in 0...coordenadasA.count-1
         {
@@ -45,6 +58,15 @@ class MapaMain: UIViewController,CLLocationManagerDelegate, MKMapViewDelegate {
     }
 
     func mostrarLugares(){
+        
+        nombreBD.removeAll()
+        comentarioBD.removeAll()
+        fechaDesdeBD.removeAll()
+        fechaHastaBD.removeAll()
+        coordenadasABD.removeAll()
+        coordenadasBBD.removeAll()
+
+        
         
         let url: String = "http://localhost:8888/SitiosVisitados/public/index.php/api/lugares"
         
@@ -90,6 +112,7 @@ class MapaMain: UIViewController,CLLocationManagerDelegate, MKMapViewDelegate {
                     anotaciones.title = nombreBD[i]
                     self.mapView.addAnnotation(anotaciones)
                 }
+            
                 print(idBD)
                 print(nombreBD)
                 print(comentarioBD)

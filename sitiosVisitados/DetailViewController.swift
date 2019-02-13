@@ -11,7 +11,7 @@ class DetailViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     @IBOutlet weak var mapaDetail: MKMapView!
     var peticion: Int = 0
     let locationManager = CLLocationManager()
-
+    
     var nombre = ""
     var descripcion = ""
     var fechaDe = ""
@@ -26,36 +26,41 @@ class DetailViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         DetailFechaDesde.text = fechaDe
         DetailFechaHasta.text = FechaHa
     }
-
+    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         print("didChangeAuthorization")
         manager.startUpdatingLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        pin()
+        obtenerCoordenadas()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        pin()
+        obtenerCoordenadas()
         self.view.layoutIfNeeded()
         self.viewDidLoad()
     }
-    func pin() {
+    func obtenerCoordenadas()
+    {
+        let nombreSitio = nombreBD.firstIndex(of: nombre)
+        print(nombreSitio as Any)
         
-        for i in 0...nombreBD.count-1
-        {
-            //MARCAR UBICACIÓN
-            let coordenadasOrigen = CLLocationCoordinate2DMake(coordenadasABD[i], coordenadasBBD[i])
-            
-            let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
-            _ = MKCoordinateRegion(center: coordenadasOrigen, span: span)
-            
-            let anotaciones = MKPointAnnotation()
-            anotaciones.coordinate = coordenadasOrigen
-            anotaciones.title = nombreBD[i]
-            self.mapaDetail.addAnnotation(anotaciones)
-            
-        }
+        //MARCAR UBICACIÓN
+        let coordenadasOrigen = CLLocationCoordinate2DMake(coordenadasABD[nombreSitio!], coordenadasBBD[nombreSitio!])
+        //Centrar el punto en el medio de tu vista
+        var center = CLLocationCoordinate2D(latitude: coordenadasABD[nombreSitio!], longitude: coordenadasBBD[nombreSitio!])
+        mapaDetail.centerCoordinate = center
+        
+        let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
+        _ = MKCoordinateRegion(center: coordenadasOrigen, span: span)
+        
+        let anotaciones = MKPointAnnotation()
+        anotaciones.coordinate = coordenadasOrigen
+        anotaciones.title = nombreBD[nombreSitio!]
+        self.mapaDetail.addAnnotation(anotaciones)
+        
     }
+    func setCenter(_ coordinate: CLLocationCoordinate2D,animated: Bool){}
+    
 }

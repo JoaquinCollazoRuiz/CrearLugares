@@ -16,13 +16,14 @@ class An_adirSitios: UIViewController, CLLocationManagerDelegate{
     var newCoords = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     @IBAction func crearUbicacion(_ sender: Any) {
         añadirUbicacion()
+//         crearLugar(lugarNombre: añadirTitulo.text!, descripcion: añadirComentarios.text!, fechaInicio: añadirFechaDesde.text!, fechaFin: añadirFechaHasta.text!, coordenadasX: coordenadasA.last!, coordenadasY: coordenadasB.last!)
     }
     
     func crearLugar(lugarNombre:String,descripcion:String, fechaInicio:String,fechaFin:String,coordenadasX:Double,coordenadasY:Double){
         
         let url: String = "http://localhost:8888/SitiosVisitados/public/index.php/api/lugares"
         let parameters: Parameters = ["lugarNombre": lugarNombre, "descripcion": descripcion, "fechaInicio": fechaInicio, "fechaFin": fechaFin,"coordenadasX": coordenadasX, "coordenadasY": coordenadasY]
-        let _headers: HTTPHeaders = ["Content-Type":"application/x-www-form-urlencoded", "Authorization":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibm9tYnJlIjoiam9hcXVpbiIsImVtYWlsIjoiam9hcXVpbkBnbWFpbC5jb20iLCJjb250cmFzZW5hIjoiMTIzNDU2NzgifQ.LhUKtXqmgpwONS8f15F6RUoJWiap9dBOc9cxYSqvVvQ"]
+        let _headers: HTTPHeaders = ["Content-Type":"application/x-www-form-urlencoded", "Authorization":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibm9tYnJlIjoiam9hcXVpbiIsImVtYWlsIjoiam9hcXVpbkBnbWFpbC5jb20iLCJjb250cmFzZW5hIjoiMTIzNDU2NzgiLCJpZF9yb2wiOiIwIn0.9tNQvtcXjAkV006v5TTGi023cbLzCp5o7JJd3MN4zJs"]
         print(parameters)
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: _headers).responseJSON{
             response in
@@ -63,14 +64,12 @@ class An_adirSitios: UIViewController, CLLocationManagerDelegate{
     {
         if  btnAñadirUbicacion.isTouchInside && (!(añadirTitulo.text?.isEmpty)!) && (!(añadirComentarios.text?.isEmpty)!) && (!(añadirFechaDesde.text?.isEmpty)!) && (!(añadirFechaHasta.text?.isEmpty)!)
         {
-            
-            print("hello")
             titulos.append(añadirTitulo.text!)
             comentarios.append(añadirComentarios.text!)
             fechaDesde.append(añadirFechaDesde.text!)
             fechaHasta.append(añadirFechaHasta.text!)
             print(titulos)
-            
+
             coordenadasA.append(Double(newCoords.latitude))
             coordenadasB.append(Double(newCoords.longitude))
             print(coordenadasA)

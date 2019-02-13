@@ -26,11 +26,13 @@ class Register: UIViewController {
     
     func peticionRegistro()
     {
-        request("http://localhost:8888/SitiosVisitados/public/index.php/api/register",
-                method: .post,
-                parameters: ["nombre":campoUsuario.text!, "email":campoEmail.text!, "contrasena":campoContrasena.text!],
-                encoding: URLEncoding.httpBody).responseJSON { (respuesta) in
-                    print(respuesta.result.value!)
+        if Connectivity.isConnectedToInternet() {
+            request("http://localhost:8888/SitiosVisitados/public/index.php/api/register",
+                    method: .post,
+                    parameters: ["nombre":campoUsuario.text!, "email":campoEmail.text!, "contrasena":campoContrasena.text!],
+                    encoding: URLEncoding.httpBody).responseJSON { (respuesta) in
+                        print(respuesta.result.value!)
+            }
         }
     }
     
@@ -76,7 +78,7 @@ class Register: UIViewController {
     
     func camposVacios()
     {
-        if ((campoUsuario.text?.isEmpty)! && (campoEmail.text?.isEmpty)! && (campoContrasena.text?.isEmpty)! && (campoRepetirContrasena.text?.isEmpty)!)
+        if ((campoUsuario.text?.isEmpty)! || (campoEmail.text?.isEmpty)! || (campoContrasena.text?.isEmpty)! || (campoRepetirContrasena.text?.isEmpty)!)
         {
             let alert = UIAlertController(title: "No puede haber campos vacios", message:
                 "Vuelva a intentarlo", preferredStyle: .alert)

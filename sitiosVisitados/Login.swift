@@ -10,6 +10,9 @@ class Login: UIViewController {
     override func viewDidLoad() {super.viewDidLoad()}
     
     @IBAction func logearte(_ sender: Any) {
+        campoVacio()
+        validateEmail()
+        contrasenaLength()
         login()
     }
     @IBAction func registerBtn(_ sender: Any) {
@@ -45,15 +48,54 @@ class Login: UIViewController {
         }
         else
         {
-            let alert = UIAlertController(title: "No se ha podido iniciar sesion \(usuarioCampoLogin.text ?? "usuario") ", message:
-                "Intentelo de nuevo", preferredStyle: .alert)
+//            let alert = UIAlertController(title: "No se ha podido iniciar sesion \(usuarioCampoLogin.text ?? "usuario") ", message:
+//                "Intentelo de nuevo", preferredStyle: .alert)
+//            
+//            alert.addAction(UIAlertAction(title: "ok", style:
+//                .cancel, handler: { (accion) in
+//                    print("a")
+//            }))
+//            present(alert, animated: true, completion: nil)
+
+        }
+    }
+    
+    func validateEmail()
+    {
+        if ((!(usuarioCampoLogin.text?.contains("@"))!))
+        {
+            let alert = UIAlertController(title: "El email debe contener @", message:
+                "Vuelva a intentarlo", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "ok", style:
-                .cancel, handler: { (accion) in
-                    print("a")
-            }))
+                .cancel, handler: { (accion) in}))
             present(alert, animated: true, completion: nil)
-
+        }
+    }
+    
+    func contrasenaLength()
+    {
+        if (contrasenaCampoLogin.text?.count)! < 8
+        {
+            let alert = UIAlertController(title: "La contraseña debe tener mínimo 8 carácteres", message:
+                "Vuelva a intentarlo", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "ok", style:
+                .cancel, handler: { (accion) in}))
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func campoVacio()
+    {
+        if ((usuarioCampoLogin.text?.isEmpty)! || (contrasenaCampoLogin.text?.isEmpty)!)
+        {
+            let alert = UIAlertController(title: "No puede haber campos vacios", message:
+                "Vuelva a intentarlo", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "ok", style:
+                .cancel, handler: { (accion) in}))
+            present(alert, animated: true, completion: nil)
         }
     }
 }

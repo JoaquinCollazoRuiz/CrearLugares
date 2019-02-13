@@ -5,6 +5,7 @@ import Alamofire
 
 class ViewController: UIViewController{
     @IBOutlet weak var tablaSitios: UITableView!
+
     var peticion: Int = 0
 
     override func viewDidLoad() {

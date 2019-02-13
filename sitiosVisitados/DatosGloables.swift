@@ -17,3 +17,8 @@ var fechaHastaBD = [String]()
 var coordenadasABD = [Double]()
 var coordenadasBBD = [Double]()
 var idBD = [Int]()
+
+var nombreDetalle = [Int]()
+//var descripcionDetalle = [String]()
+//var coordenadasDetalle1 = [Double]()
+//var coordenadasDetalle2 = [Double]()
